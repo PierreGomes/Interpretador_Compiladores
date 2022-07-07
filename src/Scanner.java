@@ -43,15 +43,15 @@ class Scanner implements java_cup.runtime.Scanner {
    * Translates characters to character classes
    */
   private static final char [] ZZ_CMAP = {
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  2,  1,  1,  0,  0, 
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  2,  3,  1,  1,  0,  0, 
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
-     1,  0,  0,  0,  0,  0,  0,  0,  3,  4,  5,  6,  0,  7,  0,  0, 
-     8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  0,  9,  0, 10,  0,  0, 
-     0, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 
-    11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,  0,  0,  0,  0, 12, 
-     0, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 
-    11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,  0,  0,  0,  0,  0, 
-     0,  0,  0,  0,  0,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+     1,  4,  0,  0,  0,  0,  0,  0,  5,  6,  7,  8,  9, 10,  0, 11, 
+    12, 12, 12, 12, 12, 12, 12, 12, 12, 12,  0, 13,  0, 14,  0,  0, 
+     0, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 
+    15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16,  0, 17,  0, 18, 
+     0, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 
+    15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 19,  0, 20,  0,  0, 
+     0,  0,  0,  0,  0,  3,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
@@ -67,11 +67,12 @@ class Scanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\11\1\12\1\13";
+    "\1\0\1\1\1\2\1\3\1\1\1\4\1\5\1\6"+
+    "\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16"+
+    "\1\17\1\20\1\21\1\22\1\23\1\24";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[12];
+    int [] result = new int[22];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -96,11 +97,12 @@ class Scanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\15\0\15\0\15\0\15\0\15\0\15\0\15"+
-    "\0\32\0\15\0\15\0\47";
+    "\0\0\0\25\0\25\0\25\0\52\0\25\0\25\0\25"+
+    "\0\25\0\25\0\25\0\25\0\77\0\25\0\124\0\151"+
+    "\0\25\0\25\0\25\0\25\0\25\0\25";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[12];
+    int [] result = new int[22];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -123,12 +125,14 @@ class Scanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\0\1\4\1\5\1\6\1\7\1\10"+
-    "\1\11\1\12\1\13\1\14\1\2\25\0\1\11\14\0"+
-    "\1\14\2\0\2\14";
+    "\1\2\1\3\1\4\1\0\1\5\1\6\1\7\1\10"+
+    "\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20"+
+    "\1\21\1\22\1\2\1\23\1\24\43\0\1\25\22\0"+
+    "\1\15\26\0\1\26\22\0\1\20\2\0\1\20\2\0"+
+    "\1\20\2\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[52];
+    int [] result = new int[126];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -171,10 +175,10 @@ class Scanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\7\11\1\1\2\11\1\1";
+    "\1\0\3\11\1\1\7\11\1\1\1\11\2\1\6\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[12];
+    int [] result = new int[22];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -658,60 +662,195 @@ class Scanner implements java_cup.runtime.Scanner {
             { System.out.println("Caracter ilegal: " + yytext());
             }
             // fall through
-          case 12: break;
+          case 21: break;
           case 2:
             { 
             }
             // fall through
-          case 13: break;
+          case 22: break;
           case 3:
+            { return new Symbol(Tokens.LINHA, yytext());
+            }
+            // fall through
+          case 23: break;
+          case 4:
             { return new Symbol(Tokens.LPAREN, yytext());
             }
             // fall through
-          case 14: break;
-          case 4:
+          case 24: break;
+          case 5:
             { return new Symbol(Tokens.RPAREN, yytext());
             }
             // fall through
-          case 15: break;
-          case 5:
+          case 25: break;
+          case 6:
             { return new Symbol(Tokens.VEZES, yytext());
             }
             // fall through
-          case 16: break;
-          case 6:
+          case 26: break;
+          case 7:
             { return new Symbol(Tokens.MAIS, yytext());
             }
             // fall through
-          case 17: break;
-          case 7:
+          case 27: break;
+          case 8:
+            { return new Symbol(Tokens.VIRGULA, yytext());
+            }
+            // fall through
+          case 28: break;
+          case 9:
             { return new Symbol(Tokens.MENOS, yytext());
             }
             // fall through
-          case 18: break;
-          case 8:
+          case 29: break;
+          case 10:
+            { return new Symbol(Tokens.DIVIDIDO, yytext());
+            }
+            // fall through
+          case 30: break;
+          case 11:
             { return new Symbol(Tokens.NUMERO, new Integer(yytext()));
             }
             // fall through
-          case 19: break;
-          case 9:
+          case 31: break;
+          case 12:
             { return new Symbol(Tokens.SEMI, yytext());
             }
             // fall through
-          case 20: break;
-          case 10:
+          case 32: break;
+          case 13:
             { return new Symbol(Tokens.ATRIB, yytext());
             }
             // fall through
-          case 21: break;
-          case 11:
-            { return new Symbol(
-		(yytext().equals("mais")) ? Tokens.MAIS : Tokens.ID,
-		(yytext().equals("mais")) ? "+" : yytext()
-	);
+          case 33: break;
+          case 14:
+            { String Identificador = yytext();
+
+    // Debug
+    // System.out.println("Identificador interpretado = \""+ Identificador +"\"");
+
+    switch(Identificador){
+        // Comandos first letter upper case
+        case "Resolva"  -> {return new Symbol(Tokens.RESOLVA,   Identificador);}
+        case "Guarde"   -> {return new Symbol(Tokens.GUARDE,   Identificador);}
+        case "Escreva"  -> {return new Symbol(Tokens.ESCREVA,   Identificador);}
+        // Comandos lower case
+        case "resolva"  -> {return new Symbol(Tokens.RESOLVA,   Identificador);}
+        case "guarde"   -> {return new Symbol(Tokens.GUARDE,   Identificador);}
+        case "escreva"  -> {return new Symbol(Tokens.ESCREVA,   Identificador);}
+
+        // Condicionais
+        case "se"       -> {return new Symbol(Tokens.SE,        Identificador);}
+        case "Se"       -> {return new Symbol(Tokens.SE,        Identificador);}
+        case "entao"    -> {return new Symbol(Tokens.ENTAO,        Identificador);}
+        case "senao"    -> {return new Symbol(Tokens.SENAO,        Identificador);}
+
+
+        // Interrogações
+        case "Qual"     -> {return new Symbol(Tokens.QUAL,      Identificador);}
+        case "qual"     -> {return new Symbol(Tokens.QUAL,      Identificador);}
+        case "Quanto"   -> {return new Symbol(Tokens.QUANTO,      Identificador);}
+        case "quanto"   -> {return new Symbol(Tokens.QUANTO,      Identificador);}
+
+
+        // Complementos upper case
+        case "Eh"       -> {return new Symbol(Tokens.EH,        Identificador);}
+        case "O"        -> {return new Symbol(Tokens.O,         Identificador);}
+        case "Do"       -> {return new Symbol(Tokens.DO,        Identificador);}
+        case "Da"       -> {return new Symbol(Tokens.DA,        Identificador);}
+        case "De"       -> {return new Symbol(Tokens.DE,        Identificador);}
+        case "Em"       -> {return new Symbol(Tokens.EM,        Identificador);}
+
+        // Complementos lower case
+        case "eh"       -> {return new Symbol(Tokens.EH,            Identificador);}
+        case "o"        -> {return new Symbol(Tokens.O,             Identificador);}
+        case "a"        -> {return new Symbol(Tokens.A,             Identificador);}
+        case "do"       -> {return new Symbol(Tokens.DO,            Identificador);}
+        case "da"       -> {return new Symbol(Tokens.DA,            Identificador);}
+        case "de"       -> {return new Symbol(Tokens.DE,            Identificador);}
+        case "em"       -> {return new Symbol(Tokens.EM,        Identificador);}
+
+        // Fracionadores upper case
+        case "Dobro"    -> {return new Symbol(Tokens.DOBRO,         Identificador);}
+        case "Triplo"   -> {return new Symbol(Tokens.TRIPLO,        Identificador);}
+        case "Metade"   -> {return new Symbol(Tokens.METADE,        Identificador);}
+        // Fracionadores lower case
+        case "dobro"    -> {return new Symbol(Tokens.DOBRO,         Identificador);}
+        case "triplo"   -> {return new Symbol(Tokens.TRIPLO,        Identificador);}
+        case "metade"   -> {return new Symbol(Tokens.METADE,        Identificador);}
+
+
+        // Ordinarios upper case
+        case "Primeiro" -> {return new Symbol(Tokens.PRIMEIRO,      Identificador);}
+        case "Segundo"  -> {return new Symbol(Tokens.SEGUNDO,       Identificador);}
+        case "Terceiro" -> {return new Symbol(Tokens.TERCEIRO,      Identificador);}
+        // Ordinarios lower case
+        case "primeiro" -> {return new Symbol(Tokens.PRIMEIRO,      Identificador);}
+        case "segundo"  -> {return new Symbol(Tokens.SEGUNDO,       Identificador);}
+        case "terceiro" -> {return new Symbol(Tokens.TERCEIRO,      Identificador);}
+
+
+        // Listas e Elementos
+        case "Elemento" -> {return new Symbol(Tokens.ELEMENTO,      Identificador);}
+        case "elemento" -> {return new Symbol(Tokens.ELEMENTO,      Identificador);}
+        case "Serie"    -> {return new Symbol(Tokens.SERIE,         Identificador);}
+        case "serie"    -> {return new Symbol(Tokens.SERIE,         Identificador);}
+        case "Valor"    -> {return new Symbol(Tokens.VALOR,         Identificador);}
+        case "valor"    -> {return new Symbol(Tokens.VALOR,         Identificador);}
+
+
+        // Operadores Escritos lower case
+        case "Mais"        -> {return new Symbol(Tokens.MAIS,       Identificador);}
+        case "Menos"       -> {return new Symbol(Tokens.MENOS,      Identificador);}
+        case "Vezes"       -> {return new Symbol(Tokens.VEZES,      Identificador);}
+        case "Dividido"    -> {return new Symbol(Tokens.DIVIDIDO,   Identificador);}
+        // Operadores Escritos lower case
+        case "mais"        -> {return new Symbol(Tokens.MAIS,       Identificador);}
+        case "menos"       -> {return new Symbol(Tokens.MENOS,      Identificador);}
+        case "vezes"       -> {return new Symbol(Tokens.VEZES,      Identificador);}
+        case "dividido"    -> {return new Symbol(Tokens.DIVIDIDO,   Identificador);}
+    }
+
+    // System.out.println("DEBUG: identificador: " + yytext());
+
+    // Retorna Identificador normal
+    return new Symbol(
+        (yytext().equals("mais")) ? Tokens.MAIS : Tokens.ID,
+        (yytext().equals("mais")) ? "+" : yytext()
+    );
             }
             // fall through
-          case 22: break;
+          case 34: break;
+          case 15:
+            { return new Symbol(Tokens.LSER, yytext());
+            }
+            // fall through
+          case 35: break;
+          case 16:
+            { return new Symbol(Tokens.RSER, yytext());
+            }
+            // fall through
+          case 36: break;
+          case 17:
+            { return new Symbol(Tokens.LCOL, yytext());
+            }
+            // fall through
+          case 37: break;
+          case 18:
+            { return new Symbol(Tokens.RCOL, yytext());
+            }
+            // fall through
+          case 38: break;
+          case 19:
+            { return new Symbol(Tokens.DIFERENTE, yytext());
+            }
+            // fall through
+          case 39: break;
+          case 20:
+            { return new Symbol(Tokens.IGUAL, yytext());
+            }
+            // fall through
+          case 40: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

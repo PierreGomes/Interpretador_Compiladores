@@ -24,11 +24,30 @@ public class ExemploJFlexCup {
     public static Runtime r;
 
     public static void main(String[] args) {
-//            gerarScanner(JFLEX_PATH, SCANNER_FLEX_PATH);
-//            gerarParserTokens(JCUP_PATH, PARSER_CUP_PATH, PARSER_TOKENS_JAVA_TO_PATH);
-            scannearEntrada(ENTRADA_PATH);
-            parseEntrada(ENTRADA_PATH);
+        atualizarArquivos();        
+//        atualizarArquivos();
+        
+        scanReadEntrada();
     }
+    
+    public static void scanReadEntrada(){
+        try{
+            scannearEntrada(ENTRADA_PATH);
+            sleep(2);
+            parseEntrada(ENTRADA_PATH);
+        } catch(Exception e){
+            System.out.println("Erro ao scannear ou ler entrada: "+ e.toString());
+        }
+    }
+    
+    public static void atualizarArquivos(){
+        try{
+            gerarScanner(JFLEX_PATH, SCANNER_FLEX_PATH);
+            sleep(500);
+            gerarParserTokens(JCUP_PATH, PARSER_CUP_PATH, PARSER_TOKENS_JAVA_TO_PATH);
+        } catch (Exception e){System.out.println("Erro ao Atualizar Arquivos" + e.toString());}
+    }
+    
     
     /**
      * Faz Parse da entrada
@@ -40,6 +59,7 @@ public class ExemploJFlexCup {
             System.out.println("\n...\n..\nPARSE FINALIZADO\n..\n..");
             parser.parse();
         } catch (Exception e){
+//            e.printStackTrace();
             System.out.println("\n===\n===\nErro ao Fazer Parse de " + entradaPath + ":\n"+ e.toString() +"\n===\n===\n");
         }
     }
@@ -91,7 +111,6 @@ public class ExemploJFlexCup {
             p = r.exec(new String[]{"java","-jar", JCupPath, "-parser", "Parser", "-symbols", "Tokens", ParserCupPath}, null, new File("src//"));
             
             int result = p.waitFor();
-
             if(result == 1)
                 throw new Exception("RESULTADO DO PROCESSO = 1");
             

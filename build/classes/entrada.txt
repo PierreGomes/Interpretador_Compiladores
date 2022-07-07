@@ -1,3 +1,19 @@
-y = 3;
-y = y - 5;
-y*2;
+x = -2;
+qual eh o valor de x;
+Qual eh o dobro de 2+2;
+Qual eh o triplo de 2+2;
+Qual eh a metade de 2+2;
+
+escreva 2+2;
+y = 23;
+z = 20 * y;
+x = (2 + y) - z;
+y = 22;
+Qual eh o valor de x;
+x = 2;
+escreva x+12;
+
+se 2 == 2 escreva igual;
+se 2+y != 2+x escreva difere;
+
+Qual eh o terceiro elemento da serie [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2]

@@ -6,21 +6,48 @@ parser code {:
     Scanner s;
     Parser(Scanner s){ this.s=s; }
 
+    String teste = "teste";
+    int count = 0;
+    int lines = 1;
+    int serie_inteiros[] = new int[100];
+
+    boolean debug = false;
+    boolean error = false;
+    String descricao_erro = "";
+    
     // tabela de símbolos
     java.util.Map<String, Integer> simbolos = new java.util.HashMap<String, Integer>();
 :}
 
 /* conectar esse parser ao scanner! */
 init with {:  :};
-scan with {: return s.next_token(); :};
+scan with {: 
+    // debug 
+    Symbol token = s.next_token();
+    // String token_str = token.toString();
+    
+    String token_str = token.value.toString();
+    // System.out.println(token_str);
+    // System.out.println(error);
+
+    if(error){
+        error = false;
+       System.out.println("---"+descricao_erro+"---");
+    }
+    // return s.next_token(); 
+    return token; 
+:};
 
 /* Terminais (tokens retornados pelo scanner). */
-terminal            SEMI, MAIS, MENOS, VEZES, MENOSUNIT, LPAREN, RPAREN, ID, ATRIB;
+terminal            LINHA, QUANTO, IGUAL, DIFERENTE, VALOR, ENTAO, SENAO, ESCREVA, GUARDE, SEMI, MAIS, MENOS, VEZES, DIVIDIDO, LPAREN, RPAREN, LCOL, RCOL, LSER, RSER, ID, ATRIB, QUAL, EH, O, A, DOBRO, TRIPLO, METADE, RESOLVA, VIRGULA, PRIMEIRO, SEGUNDO, TERCEIRO, ELEMENTO, DO, DA, DE, SERIE, SE, EM;
 terminal Integer    NUMERO;        
+non terminal int[100]  series_num;
 
 /* Não terminais */
-non terminal            inicio;
+non terminal            pergunta, inicio, qualFormulado, qual_complemento_exp, qualNucleo_exp, erro, condicional, comando;
 non terminal Integer    exp;      // utilizado para armazenar as subexpressões avaliadas
+non terminal            fracionador, multiplicador;      // utilizado para armazenar as subexpressões avaliadas
+non terminal Boolean    condicao;
 
 /* Precedência de operadores */
 precedence left MAIS, MENOS;
@@ -39,16 +66,44 @@ E ->  E + E
     | i
     | i = E
 */
-inicio ::=   inicio exp:e SEMI       {: System.out.println(e);         :}
-           | exp:e SEMI              {: System.out.println(e);         :}
+// Inicio
+
+
+inicio ::= inicio exp:e                   
+    | exp:e;
+
+// Expressoes Matemáticas
+exp ::=   exp:e1 MAIS  exp:e2                           {:RESULT = e1+e2;                                           if(debug){System.out.println("(dbg)linha:"+lines+" : "); System.out.println("e + e");}:}
+        | exp:e1 MENOS exp:e2                           {:RESULT = e1-e2;                                           if(debug){System.out.println("(dbg)linha:"+lines+" : "); System.out.println("e - e");}:}
+        | exp:e1 VEZES exp:e2                           {:RESULT = e1*e2;                                           if(debug){System.out.println("(dbg)linha:"+lines+" : "); System.out.println("e * e");}:}
+        | MENOS exp:e                                   {:RESULT = -e;                                              if(debug){System.out.println("(dbg)linha:"+lines+" : "); System.out.println("- e");}:}
+        | LPAREN exp:e RPAREN	                        {:RESULT = e;                                               if(debug){System.out.println("(dbg)linha:"+lines+" : "); System.out.println("(e)");}:}
+        | NUMERO:n                                      {:RESULT = n;                                               if(debug){System.out.println("(dbg)linha:"+lines+" : "); System.out.println("numero");}:}
+        | ID:i                                          {:RESULT = simbolos.get(i);                                 if(debug){System.out.println("(dbg)linha:"+lines+" : "); System.out.println(simbolos.get(i));}:}
+        | ID:i ATRIB exp:e SEMI                         {:System.out.println("\n---------------\nlinha : "+lines+" : " + i + "=" + e);   simbolos.put(i.toString(), e);:}
+        | comando                                       {:if(debug){System.out.println(" redirect comando");}:}
+        | condicional                                   {:if(debug){System.out.println(" redirect condicional");}:}
+        | pergunta                                      {:if(debug){System.out.println(" redirect pergunta");}:}
+        | LINHA                                         {:lines++;:}
+
 ;
 
-exp ::=   exp:e1 MAIS  exp:e2        {: RESULT = e1+e2;                :}
-        | exp:e1 MENOS exp:e2        {: RESULT = e1-e2;                :}
-        | exp:e1 VEZES exp:e2        {: RESULT = e1*e2;                :}
-        | MENOS exp:e                {: RESULT = -e;                   :}
-        | LPAREN exp:e RPAREN	     {: RESULT = e;                    :}
-        | NUMERO:n                   {: RESULT = n;                    :}
-        | ID:i	                     {: RESULT = simbolos.get(i);      :}
-        | ID:i ATRIB exp:e           {: simbolos.put(i.toString(), e);  :}
+comando ::= ESCREVA exp:e SEMI                            {:System.out.println("\n---------------\nlinha : "+lines+" : " + e + "; (comando)");:}
+;
+
+condicional ::=   SE exp:n IGUAL exp:n2 ESCREVA ID:i SEMI       {:System.out.println("\n---------------\nlinha : "+lines+" : ");   if(n.intValue() == n2.intValue()){System.out.println(n + " == " + n2 + "? " + i);}:}
+                | SE exp:n DIFERENTE exp:n2 ESCREVA ID:i SEMI   {:System.out.println("\n---------------\nlinha : "+lines+" : ");   if(n.intValue() != n2.intValue()){System.out.println(n + " != " + n2 + "? " + i);}:}
+;
+
+pergunta ::= 
+         QUAL EH O VALOR DE ID:i SEMI                   {:System.out.println("\n---------------\nlinha : "+lines+" : " + simbolos.get(i) + " é o valor de: " + i);:}
+        | QUAL EH O DOBRO DE exp:e SEMI                 {:System.out.println("\n---------------\nlinha : "+lines+" : " + e*2 +" (pergunta)");:}
+        | QUAL EH O TRIPLO DE exp:e SEMI                {:System.out.println("\n---------------\nlinha : "+lines+" : " + e*3 +" (pergunta)");:}
+        | QUAL EH A METADE DE exp:e SEMI                {:System.out.println("\n---------------\nlinha : "+lines+" : " + e/2 +" (pergunta)");:}
+        | QUAL EH O TERCEIRO ELEMENTO DA SERIE LSER series_num RSER    {:System.out.println("\n---------------\nlinha : teste");:}
+;
+
+
+series_num ::= series_num VIRGULA NUMERO:n    {: count++; serie_inteiros[count - 1] = n; :}
+        | NUMERO:n                  {: System.out.println("pegou7 = "+ n);  count++; serie_inteiros[count - 1] = n;:}
 ;

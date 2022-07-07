@@ -1,0 +1,27 @@
+Quanto eh o triplo de 23;
+se 2+2 escreva 2;
+escrevar 2+3*7;
+escreva 2-111+2;
+Guarde 1+2 em Y;
+Guarde 1+2 em Y;
+Guarde 1+2 em Y;
+Guarde 1+2 em Y;
+Qual eh o valor de Y;
+Y + 1;
+
+Qual eh o valor de Y;
+
+y = Y -2;
+Qual eh o valor de Y;
+Qual eh o valor de Y;
+
+
+y = 2 ;
+Qual eh o valor de y;
+Qual eh o dobro de 2+ 1;
+Qual eh a Metade de 99 + 3;
+Guarde 1+2 em Y;
+Qual eh o valor de Y;
+X = Y + 1;
+Qual eh o valor de X;
+Se 2 == 2 Escreva 2;

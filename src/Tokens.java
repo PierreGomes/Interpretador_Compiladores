@@ -6,30 +6,94 @@
 /** CUP generated class containing symbol constants. */
 public class Tokens {
   /* terminals */
-  public static final int MAIS = 3;
-  public static final int MENOS = 4;
-  public static final int SEMI = 2;
+  public static final int NUMERO = 43;
+  public static final int DE = 39;
+  public static final int DA = 38;
+  public static final int DIFERENTE = 5;
+  public static final int O = 26;
+  public static final int ELEMENTO = 36;
+  public static final int SE = 41;
+  public static final int LPAREN = 16;
+  public static final int SEMI = 11;
+  public static final int LSER = 20;
+  public static final int SEGUNDO = 34;
+  public static final int VIRGULA = 32;
+  public static final int RPAREN = 17;
+  public static final int A = 27;
+  public static final int IGUAL = 4;
+  public static final int RCOL = 19;
+  public static final int PRIMEIRO = 33;
+  public static final int DIVIDIDO = 15;
+  public static final int ENTAO = 7;
+  public static final int MAIS = 12;
+  public static final int QUAL = 24;
+  public static final int ID = 22;
   public static final int EOF = 0;
-  public static final int VEZES = 5;
-  public static final int NUMERO = 11;
-  public static final int ID = 9;
   public static final int error = 1;
-  public static final int RPAREN = 8;
-  public static final int LPAREN = 7;
-  public static final int MENOSUNIT = 6;
-  public static final int ATRIB = 10;
+  public static final int SENAO = 8;
+  public static final int SERIE = 40;
+  public static final int MENOS = 13;
+  public static final int DOBRO = 28;
+  public static final int ESCREVA = 9;
+  public static final int GUARDE = 10;
+  public static final int EM = 42;
+  public static final int RSER = 21;
+  public static final int ATRIB = 23;
+  public static final int VALOR = 6;
+  public static final int EH = 25;
+  public static final int LCOL = 18;
+  public static final int METADE = 30;
+  public static final int QUANTO = 3;
+  public static final int LINHA = 2;
+  public static final int RESOLVA = 31;
+  public static final int DO = 37;
+  public static final int VEZES = 14;
+  public static final int TRIPLO = 29;
+  public static final int TERCEIRO = 35;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
+  "LINHA",
+  "QUANTO",
+  "IGUAL",
+  "DIFERENTE",
+  "VALOR",
+  "ENTAO",
+  "SENAO",
+  "ESCREVA",
+  "GUARDE",
   "SEMI",
   "MAIS",
   "MENOS",
   "VEZES",
-  "MENOSUNIT",
+  "DIVIDIDO",
   "LPAREN",
   "RPAREN",
+  "LCOL",
+  "RCOL",
+  "LSER",
+  "RSER",
   "ID",
   "ATRIB",
+  "QUAL",
+  "EH",
+  "O",
+  "A",
+  "DOBRO",
+  "TRIPLO",
+  "METADE",
+  "RESOLVA",
+  "VIRGULA",
+  "PRIMEIRO",
+  "SEGUNDO",
+  "TERCEIRO",
+  "ELEMENTO",
+  "DO",
+  "DA",
+  "DE",
+  "SERIE",
+  "SE",
+  "EM",
   "NUMERO"
   };
 }
